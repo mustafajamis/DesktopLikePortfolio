@@ -11,3 +11,4 @@ This project is a desktop-like portfolio website for Mustafa Jamshidi. It featur
 
 All code is in plain HTML, CSS, and JavaScript. Icons and popups are styled for a Windows-like experience. Drag-and-drop is smooth and prevents accidental movement. Popups can be closed by clicking outside or using the close button.
 
+<img width="1251" height="1270" alt="Screenshot 2025-09-27 015016" src="https://github.com/user-attachments/assets/873af428-87fd-4201-b0f0-80f08e37d62f" />
