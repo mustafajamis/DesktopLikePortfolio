@@ -81,7 +81,7 @@
 
     <!-- Bottom bar -->
     <div class="bottom-bar">
-      <img src="pic/icon2.svg" alt="Icon" class="bottom-bar-icon" onclick="openPopup()" />
+      <img src="pic/icon2.svg" alt="Icon" class="bottom-bar-icon" onclick="openPopup('popup')" />
     </div>
 
     <!-- Thank you popup -->
@@ -267,7 +267,7 @@
       }
 
       // Show popup by id
-      function openPopup(id) {
+      function openPopup(id = 'popup') {
         if (id) document.getElementById(id).style.display = "block";
       }
 
@@ -286,7 +286,13 @@
 
       // Shut down button handler
       document.getElementById("exitButton").onclick = function () {
-        window.location.href = "shutDown.html";
+        // Add a smooth transition effect
+        document.body.style.transition = "opacity 0.5s ease-out";
+        document.body.style.opacity = "0";
+        
+        setTimeout(function() {
+          window.location.href = "shutDown.html";
+        }, 500);
       };
 
       // Close popups by clicking outside

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shut Down</title>
+    <title>Shutting Down - Mustafa Jamshidi's Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
       body {
@@ -12,34 +12,126 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #f0f0f0;
-        font-family: "cursive", Monaco;
+        background: linear-gradient(135deg, #1e2228 0%, #23272f 50%, #2c3540 100%);
+        font-family: 'cursive', Monaco;
         font-size: 13px;
+        overflow: hidden;
       }
-      .message {
+      
+      .shutdown-container {
         text-align: center;
-        padding: 20px;
-        border: 2px solid #535353;
-        border-radius: 10px;
-        background-color: #749680;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        border-radius: 20px;
+        background: rgba(35, 39, 47, 0.95);
+        border: 2px solid #444;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        animation: fadeInUp 1s ease-out;
+        max-width: 400px;
       }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
       h1 {
-        color: white;
-        margin-bottom: 10px;
-        margin-block-start: 0.2em;
+        color: #ff6b81;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
-      p {
+      
+      .emoji {
+        font-size: 3em;
+        margin: 20px 0;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+      
+      .message {
+        color: #e0e0e0;
+        font-size: 1.2em;
+        margin: 20px 0;
+        line-height: 1.5;
+      }
+      
+      .back-button {
+        background-color: #23272f;
+        color: #ff6b81;
+        border: 2px solid #ff6b81;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        cursor: pointer;
+      }
+      
+      .back-button:hover {
+        background-color: #ff6b81;
         color: white;
-        margin: 0;
-        font-size: larger;
+        transform: scale(1.05);
+      }
+      
+      .shutdown-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        animation: shutdownEffect 3s ease-in-out infinite;
+      }
+      
+      @keyframes shutdownEffect {
+        0%, 100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.7;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="message">
-      <h1>Thank you</h1>
-      <p>🩷</p>
+    <div class="shutdown-animation"></div>
+    <div class="shutdown-container">
+      <h1>Thank You!</h1>
+      <div class="emoji">🩷</div>
+      <div class="message">
+        Thanks for visiting my portfolio!<br>
+        Hope you enjoyed exploring my work.
+      </div>
+      <a href="index.html" class="back-button">Return to Desktop</a>
     </div>
+    
+    <script>
+      // Add some interactive effects
+      document.addEventListener('DOMContentLoaded', function() {
+        // Auto-redirect after 10 seconds (optional)
+        setTimeout(function() {
+          // Uncomment the line below if you want auto-redirect
+          // window.location.href = 'index.html';
+        }, 10000);
+      });
+    </script>
   </body>
 </html>
