@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mustafa Jamshidi's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top bar with time and date -->
+    <div class="top-bar">
+      <img src="pic/icon1.svg" alt="Icon" class="top-bar-icon" style="width: 30px; height: auto" />
+      <div class="time" id="time"></div>
+      <div class="date-area" id="date-area" style="margin-left:20px;color:#e0e0e0;font-size:1em;"></div>
+    </div>
+
+    <!-- Desktop icons -->
+    <div class="desktop" id="desktop">
+      <div class="folder" id="github" style="left: 20px; top: 40px">
+        <div class="overlay"></div>
+        <img src="pic/github.svg" alt="Github" />
+        <p>GitHub</p>
+      </div>
+      <div class="folder" id="linkedin" style="left: 120px; top: 40px">
+        <div class="overlay"></div>
+        <img src="pic/linkedin.svg" alt="LinkedIn" />
+        <p>LinkedIn</p>
+      </div>
+      <div class="folder" id="email" style="left: 220px; top: 40px">
+        <div class="overlay"></div>
+        <img src="pic/mail.svg" alt="Email" />
+        <p>Email</p>
+      </div>
+      <div class="folder" id="experience" style="left: 20px; top: 160px">
+        <div class="overlay"></div>
+        <img src="pic/experience.svg" alt="Experience" />
+        <p>Experience</p>
+      </div>
+      <div class="folder" id="projects" style="left: 120px; top: 160px">
+        <div class="overlay"></div>
+        <img src="pic/projects.svg" alt="Projects" />
+        <p>Projects</p>
+      </div>
+      <div class="folder" id="resume" style="left: 220px; top: 160px">
+        <div class="overlay"></div>
+        <img src="pic/resume.svg" alt="Resume" />
+        <p>Resume</p>
+      </div>
+      <div class="folder" id="education" style="left: 20px; top: 280px">
+        <div class="overlay"></div>
+        <img src="pic/education.svg" alt="Education" />
+        <p>Education</p>
+      </div>
+      <div class="folder" id="skills" style="left: 120px; top: 280px">
+        <div class="overlay"></div>
+        <img src="pic/skills.svg" alt="Skills" />
+        <p>Skills</p>
+      </div>
+      <div class="folder" id="game" style="left: 220px; top: 280px">
+        <div class="overlay"></div>
+        <img src="pic/ticTacToe.svg" alt="TicTacToe" />
+        <p>TicTacToe<br><span style="font-size:0.9em;color:#b0b0b0;"></span></p>
+      </div>
+
+      <!-- Game popup -->
+      <div class="popup" id="game-popup">
+        <div class="popup-content" style="min-width:320px;max-width:400px;">
+          <span class="close" id="close-game">
+            <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+          </span>
+          <div class="header">
+            <h2>Tic-Tac-Toe</h2>
+          </div>
+          <div id="tic-tac-toe-board" style="display:grid;grid-template-columns:repeat(3,60px);grid-gap:8px;justify-content:center;margin:20px 0;"></div>
+          <div id="tic-tac-toe-status" style="text-align:center;font-weight:bold;"></div>
+          <button id="tic-tac-toe-restart" style="display:block;margin:10px auto;">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="bottom-bar">
+      <img src="pic/icon2.svg" alt="Icon" class="bottom-bar-icon" onclick="openPopup()" />
+    </div>
+
+    <!-- Thank you popup -->
+    <div class="popup centered-popup" id="popup">
+      <div class="popup-content">
+        <div class="close-container">
+          <span class="close" id="close">
+            <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+          </span>
+        </div>
+        <div class="content-container">
+          <p>Thank you for visiting!</p>
+          <button id="exitButton">Shut Down</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education popup -->
+    <div class="popup" id="education-popup">
+      <div class="popup-content">
+        <span class="close" id="close-education">
+          <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+        </span>
+        <div class="header">
+          <img src="pic/education.svg" alt="Education Icon" class="icon" />
+          <h2>Education</h2>
+        </div>
+        <h3>Wichita State University - B.S in Computer Science</h3>
+        <p><em>Wichita, Kansas | Expected Dec 2025</em></p>
+        <h4>Related Coursework:</h4>
+        <p>Intro to Programming, Data Structures & Algorithms, OOP, Web Dev (HTML, CSS, JavaScript), Intro to Database, Intro to Architecture, Intro to Software Engineering, Operating system, Machine Learning, Advance Algorithms.</p>
+      </div>
+    </div>
+
+    <!-- Experience popup -->
+    <div class="popup" id="experience-popup">
+      <div class="popup-content">
+        <span class="close" id="close-experience">
+          <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+        </span>
+        <div class="header">
+          <img src="pic/experience.svg" alt="Experience Icon" class="icon" />
+          <h2>Experience</h2>
+        </div>
+        <div>
+          <h3>Team Developer - LifeSizeAgent (Whisper Voice Integration Team)</h3>
+          <p><em>Remote | March 2025-Jun2025</em></p>
+          <ul>
+            <li>Integrated Whisper Al for real-time speech-to-text, enabling users to interact with the app through voice input.</li>
+            <li>Developed and tested text-to-speech (TTS) pipelines using Eleven Labs and prepared code for integration with the Simli avatar.</li>
+            <li>Collaborated cross-functionally to merge key features, such as voice-to-text and avatar integration, into production branches to support smooth deployment.</li>
+          </ul>
+        </div>
+        <hr>
+        <div>
+          <h3>Software Engineer Intern - NetApp (ONTAP & E- series)</h3>
+          <p><em>Wichita, Kansas | Dec 2022-Jun 2024</em></p>
+          <ul>
+            <li>Strengthened code reliability within a mature $CI/CD$ pipeline by conducting comprehensive unit tests for C/C++ projects on RHEL systems, directly improving product safety.</li>
+            <li>Improved process uniformity and execution efficiency by 30% by leading the conversion of over 3,000 lines of legacy Perl to Python, enhancing cross-functional compatibility.</li>
+            <li>Diagnosed and resolved critical defects in E-Series controller firmware, boosting product reliability.</li>
+            <li>Integrated with DevOps workflows by using static analysis tools like Coverity to detect and fix critical bugs, enhancing firmware performance and overall system stability.</li>
+          </ul>
+        </div>
+        <hr>
+        <div>
+          <h3>Telecom Student Technician - Telecom Office at Wichita State University</h3>
+          <p><em>Wichita, Kansas | May 2022-Dec 2022</em></p>
+          <ul>
+            <li>Executed detailed port audits and testing on communication systems, ensuring 100% uptime and operational efficiency.</li>
+            <li>Managed inventory and developed documentation that improved system efficiency by 10%, streamlining workflows and supporting seamless communication.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects popup -->
+    <div class="popup" id="projects-popup">
+      <div class="popup-content">
+        <span class="close" id="close-projects">
+          <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+        </span>
+        <div class="header">
+          <img src="pic/projects.svg" alt="Projects Icon" class="icon" />
+          <h2>Projects</h2>
+        </div>
+        <div class="project">
+          <h3>Terminal Al Assistant (Personal Project)</h3>
+          <p><em>Summer 2025</em></p>
+          <ul>
+            <li>Built a terminal-based Al assistant using Bun, React Ink, and Google Gemini API to enable natural language interaction directly from the command line.</li>
+            <li>Developed a modular TypeScript architecture with separate layers for prompt handling, model communication, and CLI rendering.</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="project">
+          <h3>Dino - Personal Nutrition Assistant (Team Lead)</h3>
+          <p><em>Spring 2025</em></p>
+          <ul>
+            <li>Developed a mobile app that uses Al-powered food recognition to estimate calorie intake from meal images.</li>
+            <li>Designed and implemented a scalable Firebase backend to support real-time meal logging, secure user data management, and long-term analytics for health tracking.</li>
+            <li>Integrated an Al-powered virtual agent to provide students with conversational support on healthy eating habits.</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="project">
+          <h3>Perl to Python Code Converter (Personal Project)</h3>
+          <p><em>Winter 2023</em></p>
+          <ul>
+            <li>Led the development of a Perl to Python code converter using OpenAl's ChatGPT, optimizing the conversion process and improving efficiency in software development workflows.</li>
+            <li>Implemented error handling mechanisms and explored leveraging error messages to enhance the conversion process further.</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="project">
+          <h3>Digital Twin project with Orpheum theater (Team member)</h3>
+          <p><em>Feb 2022</em></p>
+          <ul>
+            <li>Modernized the Orpheum Theater with a 3D digital replica, seamlessly blending history with technology.</li>
+            <li>Utilized scanning and 3D design to replace an outdated component, preserving the theater's legacy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills popup -->
+    <div class="popup" id="skills-popup">
+      <div class="popup-content">
+        <span class="close" id="close-skills">
+          <img src="pic/crossed.svg" alt="Close" style="width: 20px; height: auto" />
+        </span>
+        <div class="header">
+          <img src="pic/skills.svg" alt="Skills Icon" class="icon" />
+          <h2>Skills</h2>
+        </div>
+        <div>
+          <h4>Programming Languages</h4>
+          <p>C/C++, JavaScript, Python, Perl, CUDA, F#, HTML/CSS, PostgreSQL, SQL, PHP, Swift, TypeScript, React Native, Go</p>
+        </div>
+        <div>
+          <h4>Frameworks</h4>
+          <p>React, Node.js, Flask, FastAPI, WordPress</p>
+        </div>
+        <div>
+          <h4>Developer Tools</h4>
+          <p>Git, Git Bash, GDB, AWS CDK, Unreal Engine 5, JIRA, Microsoft Office, VS Code, Linux, PyCharm</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Open external page in new tab
+      function openPage(page) {
+        window.open(page, "_blank");
+      }
+
+      // Open email client
+      function openEmail() {
+        window.location.href = "mailto:Mustafa_jamis1@yahoo.com";
+      }
+
+      // Open GitHub profile
+      function openGitHub() {
+        window.open("https://github.com/mustafajamis", "_blank");
+      }
+
+      // Open LinkedIn profile
+      function openLinkedIn() {
+        window.open("https://linkedin.com/in/Mxjamshidi", "_blank");
+      }
+
+      // Update time and date area
+      function updateTime() {
+        const now = new Date();
+        const options = { weekday: "long" };
+        const day = now.toLocaleDateString("en-US", options);
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        document.getElementById("time").innerText = `${day}, ${hours}:${minutes}`;
+        // Date area
+        const dateString = now.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById("date-area").innerText = dateString;
+      }
+
+      // Show popup by id
+      function openPopup(id) {
+        if (id) document.getElementById(id).style.display = "block";
+      }
+
+      // Hide popup by id
+      function closePopup(id) {
+        if (id) document.getElementById(id).style.display = "none";
+      }
+
+      // Popup close button handlers
+      document.getElementById("close").onclick = () => closePopup('popup');
+      document.getElementById("close-education").onclick = () => closePopup('education-popup');
+      document.getElementById("close-experience").onclick = () => closePopup('experience-popup');
+      document.getElementById("close-projects").onclick = () => closePopup('projects-popup');
+      document.getElementById("close-skills").onclick = () => closePopup('skills-popup');
+      document.getElementById("close-game").onclick = () => closePopup('game-popup');
+
+      // Shut down button handler
+      document.getElementById("exitButton").onclick = function () {
+        window.location.href = "shutDown.html";
+      };
+
+      // Close popups by clicking outside
+      window.onclick = function (event) {
+        if (event.target.classList.contains('popup')) {
+          event.target.style.display = "none";
+        }
+      };
+
+      setInterval(updateTime, 1000);
+      updateTime();
+
+      // Drag and drop functionality for desktop icons
+      const desktop = document.getElementById("desktop");
+      let dragged = null;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      desktop.querySelectorAll(".folder").forEach((folder) => {
+        folder.style.position = "absolute";
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        const DRAG_THRESHOLD = 5; // Minimum px to start drag
+
+        // Mouse down starts drag
+        folder.onmousedown = function (e) {
+          if (e.button !== 0) return;
+          dragged = folder;
+          isDragging = false;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          offsetX = e.clientX - folder.getBoundingClientRect().left;
+          offsetY = e.clientY - folder.getBoundingClientRect().top;
+          document.onmousemove = onMouseMove;
+          document.onmouseup = onMouseUp;
+        };
+
+        // Mouse move triggers drag if threshold exceeded
+        function onMouseMove(e) {
+          if (!isDragging) {
+            if (Math.abs(e.clientX - dragStartX) > DRAG_THRESHOLD || Math.abs(e.clientY - dragStartY) > DRAG_THRESHOLD) {
+              isDragging = true;
+            } else {
+              return;
+            }
+          }
+          if (dragged) {
+            dragged.style.left = e.clientX - offsetX + "px";
+            dragged.style.top = e.clientY - offsetY + "px";
+          }
+        }
+
+        // Mouse up ends drag
+        function onMouseUp(e) {
+          document.onmousemove = null;
+          document.onmouseup = null;
+          dragged = null;
+        }
+
+        // Double-click opens popup or external link
+        folder.ondblclick = function () {
+          if (isDragging) return;
+          switch (folder.id) {
+            case "experience": openPopup('experience-popup'); break;
+            case "education": openPopup('education-popup'); break;
+            case "projects": openPopup('projects-popup'); break;
+            case "skills": openPopup('skills-popup'); break;
+            case "resume": openPage('MustafaResume.pdf'); break;
+            case "github": openGitHub(); break;
+            case "linkedin": openLinkedIn(); break;
+            case "email": openEmail(); break;
+            case "game": openPopup('game-popup'); initTicTacToe(); break;
+          }
+        };
+
+        // Simple Tic-Tac-Toe game logic
+        function initTicTacToe() {
+          const board = document.getElementById('tic-tac-toe-board');
+          const status = document.getElementById('tic-tac-toe-status');
+          const restartBtn = document.getElementById('tic-tac-toe-restart');
+          let cells = Array(9).fill(null);
+          let current = 'X';
+          let gameOver = false;
+
+          // Render board
+          function render() {
+            board.innerHTML = '';
+            cells.forEach((cell, i) => {
+              const btn = document.createElement('button');
+              btn.textContent = cell || '';
+              btn.style.width = '60px';
+              btn.style.height = '60px';
+              btn.style.fontSize = '2em';
+              btn.style.background = '#23272f';
+              btn.style.color = '#e0e0e0';
+              btn.style.border = '2px solid #444';
+              btn.style.borderRadius = '8px';
+              btn.onclick = () => move(i);
+              btn.disabled = !!cell || gameOver;
+              board.appendChild(btn);
+            });
+          }
+
+          // Handle move
+          function move(i) {
+            if (!cells[i] && !gameOver) {
+              cells[i] = current;
+              if (checkWin(current)) {
+                status.textContent = current + ' wins!';
+                gameOver = true;
+              } else if (cells.every(c => c)) {
+                status.textContent = 'Draw!';
+                gameOver = true;
+              } else {
+                current = current === 'X' ? 'O' : 'X';
+                status.textContent = current + "'s turn";
+              }
+              render();
+            }
+          }
+
+          // Check for win
+          function checkWin(player) {
+            const wins = [
+              [0,1,2],[3,4,5],[6,7,8],
+              [0,3,6],[1,4,7],[2,5,8],
+              [0,4,8],[2,4,6]
+            ];
+            return wins.some(line => line.every(idx => cells[idx] === player));
+          }
+
+          // Restart game
+          restartBtn.onclick = function() {
+            cells = Array(9).fill(null);
+            current = 'X';
+            gameOver = false;
+            status.textContent = current + "'s turn";
+            render();
+          };
+
+          status.textContent = current + "'s turn";
+          render();
+        }
+      });
+    </script>
+  </body>
+</html>
